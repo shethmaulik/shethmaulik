@@ -1,0 +1,16 @@
+192.168.50.203
+terminal leng 0
+config t
+int eth0/0
+ip add 192.168.1.1 255.255.255.252
+no shut
+exit
+int loopback 0
+ip add 1.1.1.1 255.255.255.255
+no shutdown
+exit
+router bgp 1
+bgp router-id 1.1.1.1
+neighbor 192.168.1.2 remote-as 2
+exit
+exit
